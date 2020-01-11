@@ -13,7 +13,7 @@ class App extends Component {
         score: 0,
         hightscore: 0
     };
-}
+
 
 gameOver = () => {
     if (this.state.score > this.state.hightscore) {
@@ -27,6 +27,7 @@ gameOver = () => {
         this.setState({ score: 0 });
         return true;
     }
+}
 
     clickCount = id => {
         this.state.cards.find((o, i) => {
@@ -50,7 +51,7 @@ gameOver = () => {
         return (
             <Wrapper>
                 <Header score={this.state.score} hightscore={this.state.hightscore}>Clicky Game</Header>
-                {this.state.card.map(card => (
+                {this.state.cards.map(card => (
                     <Card
                         clickCount={this.clickCount}
                         id={card.id}
@@ -60,7 +61,7 @@ gameOver = () => {
                 ))}
             </Wrapper>
         );
-    }
+    };
 }
 
 export default App;
